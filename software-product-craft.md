@@ -48,15 +48,15 @@ A principle's emphasis — and occasionally its direction — shifts along these
 
 ### 3.1 Data model is destiny
 
-- **What it means:** The shape of your data — entities, relationships, lifecycles — constrains every downstream choice: code structure, performance, what features become possible, and what becomes prohibitively expensive. A wrong data model compounds; a right one quietly enables features for years.
+- **What it means:** The shape of your data — entities, relationships, lifecycles — constrains every downstream choice: code structure, performance, what features become possible, and what becomes prohibitively expensive. A wrong data model compounds; a right one quietly enables features for years. The dominant cost is rarely the schema redesign on paper — it is **migrating live data, and every dependent that already relies on the old shape**, which is why a model resists change long after its schema file is trivial to edit (see §4, *Migration is a first-class operation*).
 - **In practice:**
   - Spend disproportionate design time on entities and their state transitions before any code is written.
   - Model relationships and cardinalities explicitly; resist "one column for now" shortcuts.
   - Defer denormalization until measurement justifies it.
 - **Cross-domain instances:**
-  - **Multi-platform SaaS:** Many products ship with `user.email` as a single text column. Two years later, supporting multiple emails, verification states, and primary-email logic ripples across login, password reset, billing, notifications, and audit logs — often a multi-month migration. Twitter encountered this at much larger scale: their original timeline assumed every tweet could be fanned out to all followers on write. Once celebrity accounts had millions of followers, the model collapsed and required a hybrid push/pull architecture (Raffi Krikorian, *Timelines at Scale*, QCon SF 2013).
-  - **Workflow / orchestration:** A workflow's append-only Event History *is* the data model. A wrong event schema breaks every replay forever, including for executions in flight when the change ships (Temporal, *Event History*).
-  - **Agentic AI:** Memory schema, tool result format (e.g., MCP), and context structure decide what an agent can remember, retrieve, and reason over. A retrieval system keyed only on string match cannot later support semantic similarity without a redesign of the underlying memory layer.
+  - **Multi-platform SaaS:** Many products ship with `user.email` as a single text column. ...
+  - **Workflow / orchestration:** A workflow's append-only Event History *is* the data model. ...
+  - **Agentic AI (which layer is destiny):** The principle binds the layer with the long half-life, not the one measured in turns — separate the two before applying it. The **durable substrate** (long-term memory schema, the conversation/thread store, persisted tool-result contracts e.g. MCP) *is* destiny: a retrieval layer keyed only on string match cannot later support semantic similarity without redesigning the memory layer. The **ephemeral working memory** (per-turn orchestrator scratch state, the reasoning context assembled for a single request) is deliberately disposable — its entire value is that it can be rebuilt every turn, so applying "destiny" to it produces over-engineering, not safety.
 
 ---
 
@@ -142,7 +142,13 @@ A principle's emphasis — and occasionally its direction — shifts along these
   - **Frontend SaaS:** The familiar React data-fetching pattern uses three independent booleans: `loading`, `error`, `data`. This permits illegal combinations — `loading=true, error=set, data=set`. A discriminated union — `{ status: 'idle' } | { status: 'loading' } | { status: 'error', error: E } | { status: 'success', data: T }` — makes them impossible to construct.
   - **Backend SaaS / API design:** Stripe's PaymentIntent API exposes a `status` field (`requires_payment_method`, `requires_confirmation`, `processing`, `succeeded`, etc.); each state exposes only the actions valid in that state.
   - **Workflow / orchestration:** A Temporal workflow definition *is* a state machine — states the workflow code cannot construct cannot occur in the Event History.
-  - **Agentic AI:** Tool input JSON Schemas (MCP, OpenAI function-calling, Anthropic tool-use) and structured-output constraints make invalid tool invocations rejectable at the boundary, before they reach the agent's reasoning loop.
+- **Agentic AI:** Tool input JSON Schemas (MCP, OpenAI function-calling, Anthropic tool-use) and structured-output constraints make invalid tool invocations rejectable at the boundary, before they reach the agent's reasoning loop.
+- **Tension with §3.3 (optimize for change):** These two principles pull in opposite directions, and the doc should flag it rather than treat both as unalloyed goods. A sum type makes illegal states impossible, but **adding a variant forces an update at every site that branches on it** — the opposite of the additive, optional-field evolution §3.3 prefers. Whether that is a *safe* change or a *silent* one depends entirely on how much exhaustiveness your toolchain enforces — the trade is not language-neutral:
+  - **Compiler-enforced** (Rust, Swift `switch`; OCaml/Haskell/Scala-sealed emit warnings teams promote to errors): a missed case fails the build automatically. Here the trade is nearly all upside — the type system converts "did I update every handler?" from a manual audit into a compile error.
+  - **Opt-in static** (TypeScript's `never`-assignment pattern; Python's `typing.assert_never()` — 3.11+, or `typing_extensions` earlier — in the catch-all arm): the guarantee exists *only if you wire it up*. Put a type checker in CI — mypy's `exhaustive-match` error code, or pyright's `reportMatchNotExhaustive` (on by default in strict mode) — or the check is decorative.
+  - **Unenforced at runtime** (Python `match` with no `case _`, or plain `if/elif`, with no checker): a new variant **fails silently** — the `match` falls through and does nothing. This is the *worst* case: you get the rigidity of a sum type with none of the safety, because nothing tells you a handler is missing.
+  - **Boundary ≠ handling (Pydantic):** a Pydantic discriminated union (`Field(discriminator=...)` / `Annotated[Union[...], Discriminator(...)]`) enforces only the *boundary* half of §3.7 — it rejects unknown tags at parse time ("parse, don't validate") — but it does **not** make your handling logic exhaustive. The boundary stops bad *input*; only the type checker stops a missing *branch*.
+- **Resolution (the artifact-half-life axis, §3):** encode invariants in the type system for long-half-life contracts — persisted formats, public APIs, identity — where the set of legal states is *stable*; stay additively loose on short-half-life surfaces — weekly-changing prompts, skills, internal DTOs — where a new variant lands often and the set of legal states is *still moving*. Make illegal states unrepresentable where the legal set is settled; keep the schema open where it is not. **In a Python stack, "settled" is only as safe as your CI:** a sealed sum type without `assert_never` + a type checker is a convention, not an invariant — so the discipline that *enforces* §3.7 in Python lives in the checker config, not the type definition.
 
 ---
 
@@ -216,6 +222,10 @@ A principle's emphasis — and occasionally its direction — shifts along these
 - **Migration is a first-class operation** — schema migrations (SQL), workflow versioning (e.g., Temporal Patching), and prompt/skill version rollouts each have a playbook, not improvisation.
 - **Continuous refactor (Boy Scout Rule)** — leave each file slightly better; daily compounds beat scheduled rewrites.
 - **Tests *and* evals as design tools** — if it's hard to test, the design is wrong. For probabilistic surfaces (LLMs, ML), eval suites complement unit tests by capturing regressions tests cannot — see Hamel Husain, *Your AI Product Needs Evals* (hamel.dev, March 29, 2024), who frames evals as a superset of assertion-style tests, not a replacement.
+- **Eval suites are first-class artifacts, not scripts** — the principles above apply to the eval harness itself, not just to the system under test:
+  - **Data model is destiny (§3.1):** the eval dataset and the grader/rubric schema decide what any score can *mean*. A rubric that collapses "wrong" and "unhelpful" into one pass/fail can never later distinguish them without re-grading the whole set.
+  - **Migration is first-class (above):** changing a grader, rubric, or judge model **breaks comparability with every prior score** — 0.82 today is not 0.82 from last month. That is a migration with a versioned dataset and a re-baseline step, not a silent edit; pin which dataset and grader version produced which number.
+  - **Boundaries follow change rates (§3.2):** keep weekly-changing prompts on one side of a boundary and slow-moving golden datasets and grader logic on the other; co-locating them couples a stable asset to a volatile one and corrupts your trend line.
 
 ---
 

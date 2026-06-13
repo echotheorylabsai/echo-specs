@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="620" viewBox="0 0 920 620" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace">
+<defs><marker id="ah-2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#838a93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ffd43b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#585c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ff8787" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-0" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#51cf66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0" y="0" width="920" height="620" rx="14" fill="#0f1011"/>
+<text x="34.0" y="40.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="21" fill="#f5f6f8" text-anchor="start" dominant-baseline="central" font-weight="600">P4 · Layered domain architecture with one cross-cutting seam</text>
+<rect x="80.0" y="170.0" width="760.0" height="420.0" rx="14" fill="#16171a" stroke="#33353b" stroke-width="1.2" stroke-dasharray="7 5"/>
+<text x="98.0" y="190.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#9a9fa8" text-anchor="start" dominant-baseline="central" font-weight="600">Business logic domain  (single acyclic direction)</text>
+<path d="M 210.0 130.0 L 210.0 220.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 300.0 515.0 L 360.0 515.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 540.0 515.0 L 600.0 515.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 690.0 480.0 L 690.0 450.0 L 210.0 450.0 L 210.0 420.0" fill="none" stroke="#51cf66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-0)"/>
+<path d="M 210.0 290.0 L 210.0 350.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 300.0 385.0 L 360.0 385.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 540.0 385.0 L 600.0 385.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 300.0 255.0 L 420.0 255.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 450.0 350.0 L 450.0 320.0 L 600.0 320.0 L 600.0 290.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<rect x="120.0" y="70.0" width="180.0" height="60.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="210.0" y="91.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Utils</text>
+<text x="210.0" y="110.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">outside the boundary</text>
+<rect x="120.0" y="220.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="210.0" y="246.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Providers</text>
+<text x="210.0" y="265.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">the one seam</text>
+<rect x="420.0" y="220.0" width="360.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="600.0" y="255.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">App Wiring + UI</text>
+<rect x="120.0" y="350.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="210.0" y="385.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Service</text>
+<rect x="360.0" y="350.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="450.0" y="385.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Runtime</text>
+<rect x="600.0" y="350.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="690.0" y="385.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">UI</text>
+<rect x="120.0" y="480.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="210.0" y="515.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Types</text>
+<rect x="360.0" y="480.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="450.0" y="515.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Config</text>
+<rect x="600.0" y="480.0" width="180.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="690.0" y="515.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Repo</text>
+<rect x="420.8" y="429.0" width="58.4" height="16" rx="3" fill="#0f1011"/>
+<text x="450.0" y="437.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">forward</text>
+</svg>

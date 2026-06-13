@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="430" viewBox="0 0 1080 430" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace">
+<defs><marker id="ah-2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#838a93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ffd43b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#585c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ff8787" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-0" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#51cf66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0" y="0" width="1080" height="430" rx="14" fill="#0f1011"/>
+<text x="34.0" y="40.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="21" fill="#f5f6f8" text-anchor="start" dominant-baseline="central" font-weight="600">P0 · Close the loop: perceive consequences, verify against intent</text>
+<path d="M 169.0 187.0 L 199.0 187.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 344.0 187.0 L 374.0 187.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 519.0 187.0 L 549.0 187.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 694.0 187.0 L 724.0 187.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 869.0 187.0 L 899.0 187.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 971.5 150.0 L 971.5 100.0 L 96.5 100.0 L 96.5 150.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 796.5 224.0 L 796.5 300.0 L 446.5 300.0 L 446.5 224.0" fill="none" stroke="#ffd43b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-4)"/>
+<path d="M 869.0 187.0 L 971.5 187.0 L 971.5 300.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<rect x="24.0" y="150.0" width="145.0" height="74.0" rx="10" fill="#13241a" stroke="#51cf66" stroke-width="1.6"/>
+<text x="96.5" y="168.2" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Intent +</text>
+<text x="96.5" y="188.5" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">acceptance</text>
+<text x="96.5" y="207.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">human-owned</text>
+<rect x="199.0" y="150.0" width="145.0" height="74.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="271.5" y="187.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Plan</text>
+<rect x="374.0" y="150.0" width="145.0" height="74.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="446.5" y="178.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Execute</text>
+<text x="446.5" y="197.2" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">code/tests/docs</text>
+<rect x="549.0" y="150.0" width="145.0" height="74.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="621.5" y="178.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Perceive</text>
+<text x="621.5" y="197.2" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">observability</text>
+<rect x="724.0" y="150.0" width="145.0" height="74.0" rx="10" fill="#241f10" stroke="#ffd43b" stroke-width="1.6"/>
+<text x="796.5" y="178.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Verify vs</text>
+<text x="796.5" y="197.2" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">intent</text>
+<rect x="899.0" y="150.0" width="145.0" height="74.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="971.5" y="187.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Merge / ship</text>
+<rect x="899.0" y="300.0" width="145.0" height="60.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="971.5" y="321.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="14" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Escalate</text>
+<text x="971.5" y="340.1" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">judgment</text>
+<rect x="465.2" y="79.0" width="137.6" height="16" rx="3" fill="#0f1011"/>
+<text x="534.0" y="87.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">loop · next change</text>
+<rect x="599.5" y="279.0" width="44.0" height="16" rx="3" fill="#0f1011"/>
+<text x="621.5" y="287.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">fails</text>
+<rect x="979.5" y="228.0" width="44.0" height="16" rx="3" fill="#0f1011"/>
+<text x="983.5" y="236.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">needs</text>
+<rect x="979.5" y="243.0" width="65.6" height="16" rx="3" fill="#0f1011"/>
+<text x="983.5" y="251.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">judgment</text>
+</svg>

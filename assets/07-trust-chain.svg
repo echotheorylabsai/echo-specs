@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="560" viewBox="0 0 1040 560" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace">
+<defs><marker id="ah-2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#838a93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ffd43b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#585c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ff8787" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-0" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#51cf66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0" y="0" width="1040" height="560" rx="14" fill="#0f1011"/>
+<text x="34.0" y="40.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="21" fill="#f5f6f8" text-anchor="start" dominant-baseline="central" font-weight="600">P10 · Keep an independent anchor outside the agent&#x27;s control</text>
+<rect x="40.0" y="70.0" width="960.0" height="130.0" rx="14" fill="#16171a" stroke="#51cf66" stroke-width="1.2"/>
+<text x="58.0" y="90.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#74e08c" text-anchor="start" dominant-baseline="central" font-weight="600">Independent ground truth — outside the agent&#x27;s control</text>
+<rect x="40.0" y="270.0" width="960.0" height="130.0" rx="14" fill="#16171a" stroke="#33353b" stroke-width="1.2" stroke-dasharray="7 5"/>
+<text x="58.0" y="290.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#9a9fa8" text-anchor="start" dominant-baseline="central" font-weight="600">Agent-authored — one model family, shared blindspots</text>
+<path d="M 205.0 176.0 L 205.0 223.0 L 520.0 223.0 L 520.0 270.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 520.0 270.0 L 520.0 176.0" fill="none" stroke="#51cf66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-0)"/>
+<path d="M 520.0 270.0 L 520.0 223.0 L 835.0 223.0 L 835.0 176.0" fill="none" stroke="#51cf66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-0)"/>
+<path d="M 220.0 455.0 L 220.0 427.5 L 520.0 427.5 L 520.0 400.0" fill="none" stroke="#ff8787" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#ah-3)"/>
+<path d="M 835.0 455.0 L 835.0 376.0" fill="none" stroke="#51cf66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#ah-0)"/>
+<rect x="70.0" y="110.0" width="270.0" height="66.0" rx="10" fill="#13241a" stroke="#51cf66" stroke-width="1.6"/>
+<text x="205.0" y="134.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Human acceptance</text>
+<text x="205.0" y="153.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">criteria</text>
+<rect x="385.0" y="110.0" width="270.0" height="66.0" rx="10" fill="#13241a" stroke="#51cf66" stroke-width="1.6"/>
+<text x="520.0" y="134.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Running app</text>
+<text x="520.0" y="153.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">observable behaviour</text>
+<rect x="700.0" y="110.0" width="270.0" height="66.0" rx="10" fill="#13241a" stroke="#51cf66" stroke-width="1.6"/>
+<text x="835.0" y="134.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Human validation</text>
+<text x="835.0" y="153.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">real outcomes</text>
+<rect x="70.0" y="310.0" width="270.0" height="66.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="205.0" y="343.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Code</text>
+<rect x="385.0" y="310.0" width="270.0" height="66.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="520.0" y="343.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Tests + linters</text>
+<rect x="700.0" y="310.0" width="270.0" height="66.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="835.0" y="334.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Reviewer agents</text>
+<text x="835.0" y="353.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">same model family</text>
+<rect x="70.0" y="455.0" width="300.0" height="64.0" rx="10" fill="#241516" stroke="#ff8787" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="220.0" y="478.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#ffb0b0" text-anchor="middle" dominant-baseline="central">Poisoned docs / rule files</text>
+<text x="220.0" y="497.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">injection surface</text>
+<rect x="700.0" y="455.0" width="270.0" height="64.0" rx="10" fill="#13241a" stroke="#51cf66" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="835.0" y="478.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Heterogeneous review</text>
+<text x="835.0" y="497.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">different model family</text>
+<rect x="318.9" y="202.0" width="87.2" height="16" rx="3" fill="#0f1011"/>
+<text x="362.5" y="210.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">criteria in</text>
+<rect x="528.0" y="215.0" width="108.8" height="16" rx="3" fill="#0f1011"/>
+<text x="532.0" y="223.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">verify against</text>
+<rect x="297.6" y="406.5" width="144.8" height="16" rx="3" fill="#0f1011"/>
+<text x="370.0" y="414.5" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">reprograms reviewer</text>
+<rect x="843.0" y="400.0" width="87.2" height="16" rx="3" fill="#0f1011"/>
+<text x="847.0" y="408.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">independent</text>
+<rect x="843.0" y="415.0" width="137.6" height="16" rx="3" fill="#0f1011"/>
+<text x="847.0" y="423.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">error distribution</text>
+</svg>

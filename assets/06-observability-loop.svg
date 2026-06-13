@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="480" viewBox="0 0 1180 480" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace">
+<defs><marker id="ah-2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#838a93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-4" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ffd43b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#585c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-3" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#ff8787" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="ah-0" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#51cf66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0" y="0" width="1180" height="480" rx="14" fill="#0f1011"/>
+<text x="34.0" y="40.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="21" fill="#f5f6f8" text-anchor="start" dominant-baseline="central" font-weight="600">Make logs, metrics, and traces agent-queryable</text>
+<rect x="500.0" y="110.0" width="330.0" height="250.0" rx="14" fill="#16171a" stroke="#33353b" stroke-width="1.2" stroke-dasharray="7 5"/>
+<text x="518.0" y="130.0" font-family="ui-sans-serif, system-ui, 'Helvetica Neue', Arial, 'DejaVu Sans', sans-serif" font-size="13" fill="#9a9fa8" text-anchor="start" dominant-baseline="central" font-weight="600">Observability stack</text>
+<path d="M 170.0 215.0 L 300.0 215.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 440.0 215.0 L 480.0 215.0 L 480.0 168.0 L 520.0 168.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 440.0 215.0 L 480.0 215.0 L 480.0 243.0 L 520.0 243.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 440.0 215.0 L 480.0 215.0 L 480.0 318.0 L 520.0 318.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 650.0 168.0 L 680.0 168.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 650.0 243.0 L 680.0 243.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 650.0 318.0 L 680.0 318.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 810.0 168.0 L 850.0 168.0 L 850.0 190.0 L 890.0 190.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 810.0 243.0 L 850.0 243.0 L 850.0 190.0 L 890.0 190.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 810.0 318.0 L 850.0 318.0 L 850.0 190.0 L 890.0 190.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 1000.0 230.0 L 1000.0 290.0" fill="none" stroke="#838a93" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-2)"/>
+<path d="M 1000.0 360.0 L 1000.0 430.0 L 105.0 430.0 L 105.0 250.0" fill="none" stroke="#51cf66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-0)"/>
+<rect x="40.0" y="180.0" width="130.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="105.0" y="206.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">App</text>
+<text x="105.0" y="225.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">per worktree</text>
+<rect x="300.0" y="180.0" width="140.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="370.0" y="206.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Vector</text>
+<text x="370.0" y="225.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">fan-out (local)</text>
+<rect x="520.0" y="140.0" width="130.0" height="56.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="585.0" y="159.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Victoria</text>
+<text x="585.0" y="178.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">Logs</text>
+<rect x="680.0" y="140.0" width="130.0" height="56.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="745.0" y="168.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">LogQL API</text>
+<rect x="520.0" y="215.0" width="130.0" height="56.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="585.0" y="234.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Victoria</text>
+<text x="585.0" y="253.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">Metrics</text>
+<rect x="680.0" y="215.0" width="130.0" height="56.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="745.0" y="243.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">PromQL API</text>
+<rect x="520.0" y="290.0" width="130.0" height="56.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="585.0" y="309.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Victoria</text>
+<text x="585.0" y="328.9" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">Traces</text>
+<rect x="680.0" y="290.0" width="130.0" height="56.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="745.0" y="318.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">TraceQL API</text>
+<rect x="890.0" y="150.0" width="220.0" height="80.0" rx="10" fill="#13241a" stroke="#51cf66" stroke-width="1.6"/>
+<text x="1000.0" y="181.3" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="16" fill="#74e08c" text-anchor="middle" dominant-baseline="central">Codex</text>
+<text x="1000.0" y="201.6" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">query · correlate · reason</text>
+<rect x="890.0" y="290.0" width="220.0" height="70.0" rx="10" fill="#17181c" stroke="#c7ccd4" stroke-width="1.6"/>
+<text x="1000.0" y="325.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="15" fill="#eef0f3" text-anchor="middle" dominant-baseline="central">Codebase</text>
+<rect x="187.8" y="194.0" width="94.4" height="16" rx="3" fill="#0f1011"/>
+<text x="235.0" y="202.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">OTLP signals</text>
+<rect x="1008.0" y="252.0" width="137.6" height="16" rx="3" fill="#0f1011"/>
+<text x="1012.0" y="260.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">implement fix (PR)</text>
+<rect x="390.1" y="409.0" width="324.8" height="16" rx="3" fill="#0f1011"/>
+<text x="552.5" y="417.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#74e08c" text-anchor="middle" dominant-baseline="central">Feedback loop:  restart · re-run · re-verify</text>
+</svg>
