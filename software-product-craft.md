@@ -2,8 +2,17 @@
 
 > **Scope:** Software product craft only — designing, architecting, building, and maintaining systems. People, team, and org dimensions are explicitly out of scope.
 
+---
+
 > **Who this is for & how to use it.**
-> These principles describe the craft of designing, architecting, building, and maintaining software products — applied without bias toward any single application class. Examples are drawn deliberately from three distinct system classes: multi-platform SaaS (web/desktop/mobile - e.g., Facebook, Twitter, Whatsapp), workflow & orchestration platforms (e.g., Temporal, Dagster), and agentic AI applications (e.g., OpenClaw, Claude Code-style agents). The same principles generalize to other classes (CLIs, data platforms, embedded, games) — use the **Axes of Variation** in §3 to translate.
+>
+> These principles cover designing, architecting, building, and maintaining software products — applied without bias toward any single application class. Examples are drawn deliberately from three distinct system classes:
+>
+> - **Multi-platform SaaS** (web/desktop/mobile — e.g., Facebook, Twitter, WhatsApp)
+> - **Workflow & orchestration platforms** (e.g., Temporal, Dagster)
+> - **Agentic AI applications** (e.g., OpenClaw, Claude Code-style agents)
+>
+> The same principles generalize to other classes (CLIs, data platforms, embedded, games) — use the **Axes of Variation** in §3 to translate.
 >
 > Use it as a **lens, not a checklist.** Read a principle, identify which axis your system sits on, and ask whether your design respects the principle in *that* form. Not every principle weighs equally for every system, and a few flip direction across axes — those are flagged inline.
 
@@ -142,13 +151,20 @@ A principle's emphasis — and occasionally its direction — shifts along these
   - **Frontend SaaS:** The familiar React data-fetching pattern uses three independent booleans: `loading`, `error`, `data`. This permits illegal combinations — `loading=true, error=set, data=set`. A discriminated union — `{ status: 'idle' } | { status: 'loading' } | { status: 'error', error: E } | { status: 'success', data: T }` — makes them impossible to construct.
   - **Backend SaaS / API design:** Stripe's PaymentIntent API exposes a `status` field (`requires_payment_method`, `requires_confirmation`, `processing`, `succeeded`, etc.); each state exposes only the actions valid in that state.
   - **Workflow / orchestration:** A Temporal workflow definition *is* a state machine — states the workflow code cannot construct cannot occur in the Event History.
-- **Agentic AI:** Tool input JSON Schemas (MCP, OpenAI function-calling, Anthropic tool-use) and structured-output constraints make invalid tool invocations rejectable at the boundary, before they reach the agent's reasoning loop.
-- **Tension with §3.3 (optimize for change):** These two principles pull in opposite directions, and the doc should flag it rather than treat both as unalloyed goods. A sum type makes illegal states impossible, but **adding a variant forces an update at every site that branches on it** — the opposite of the additive, optional-field evolution §3.3 prefers. Whether that is a *safe* change or a *silent* one depends entirely on how much exhaustiveness your toolchain enforces — the trade is not language-neutral:
-  - **Compiler-enforced** (Rust, Swift `switch`; OCaml/Haskell/Scala-sealed emit warnings teams promote to errors): a missed case fails the build automatically. Here the trade is nearly all upside — the type system converts "did I update every handler?" from a manual audit into a compile error.
-  - **Opt-in static** (TypeScript's `never`-assignment pattern; Python's `typing.assert_never()` — 3.11+, or `typing_extensions` earlier — in the catch-all arm): the guarantee exists *only if you wire it up*. Put a type checker in CI — mypy's `exhaustive-match` error code, or pyright's `reportMatchNotExhaustive` (on by default in strict mode) — or the check is decorative.
-  - **Unenforced at runtime** (Python `match` with no `case _`, or plain `if/elif`, with no checker): a new variant **fails silently** — the `match` falls through and does nothing. This is the *worst* case: you get the rigidity of a sum type with none of the safety, because nothing tells you a handler is missing.
-  - **Boundary ≠ handling (Pydantic):** a Pydantic discriminated union (`Field(discriminator=...)` / `Annotated[Union[...], Discriminator(...)]`) enforces only the *boundary* half of §3.7 — it rejects unknown tags at parse time ("parse, don't validate") — but it does **not** make your handling logic exhaustive. The boundary stops bad *input*; only the type checker stops a missing *branch*.
-- **Resolution (the artifact-half-life axis, §3):** encode invariants in the type system for long-half-life contracts — persisted formats, public APIs, identity — where the set of legal states is *stable*; stay additively loose on short-half-life surfaces — weekly-changing prompts, skills, internal DTOs — where a new variant lands often and the set of legal states is *still moving*. Make illegal states unrepresentable where the legal set is settled; keep the schema open where it is not. **In a Python stack, "settled" is only as safe as your CI:** a sealed sum type without `assert_never` + a type checker is a convention, not an invariant — so the discipline that *enforces* §3.7 in Python lives in the checker config, not the type definition.
+  - **Agentic AI:** Tool input JSON Schemas (MCP, OpenAI function-calling, Anthropic tool-use) and structured-output constraints make invalid tool invocations rejectable at the boundary, before they reach the agent's reasoning loop.
+
+- **Tension with §3.3 (optimize for change):** These two principles pull in opposite directions. A sum type makes illegal states impossible, but **adding a variant forces an update at every site that branches on it** — the opposite of the additive, optional-field evolution §3.3 prefers. Whether that is a *safe* change or a *silent* one depends entirely on how much exhaustiveness your toolchain enforces:
+
+  | Enforcement level | Languages / Tools | On new variant | Guarantee |
+  |---|---|---|---|
+  | **Compiler-enforced** | Rust, Swift `switch`; OCaml/Haskell/Scala sealed | Build fails — missed case is a compile error | Automatic; nearly all upside |
+  | **Opt-in static** | TypeScript `never`-assignment; Python `typing.assert_never()` (3.11+, or `typing_extensions`) | Check fires *only if wired up* — add mypy `exhaustive-match` or pyright `reportMatchNotExhaustive` to CI, or the check is decorative | Exists only when configured |
+  | **Unenforced at runtime** | Python `match` with no `case _`, plain `if/elif`, no type checker | Silently falls through — worst case: sum-type rigidity with zero safety, because nothing reports the missing handler | None |
+  | **Boundary ≠ handling (Pydantic)** | `Field(discriminator=...)` / `Annotated[Union[...], Discriminator(...)]` | Rejects bad *input* at parse time; handling exhaustiveness is unguarded | Input boundary only — the type checker stops a missing *branch*, not Pydantic |
+
+- **Resolution (the artifact-half-life axis, §3):** Apply the principle where the legal state set is *settled* — long-half-life contracts: persisted formats, public APIs, identity. Stay additively loose on short-half-life surfaces — weekly-changing prompts, skills, internal DTOs — where new variants land often and the set of legal states is still moving. Make illegal states unrepresentable where the legal set is settled; keep the schema open where it is not.
+
+  > **Python caveat:** A sealed sum type without `assert_never` + a type checker in CI is a convention, not an invariant. In Python, the discipline that *enforces* §3.7 lives in the checker config (`pyright --strict` or mypy with `exhaustive-match`), not the type definition itself.
 
 ---
 
@@ -156,10 +172,14 @@ A principle's emphasis — and occasionally its direction — shifts along these
 
 - **What it means:** The happy path nearly designs itself. Real design effort lives in: what can fail, how it is detected, what recovers automatically, what data must survive a failure, and what is communicated to humans. **Failure taxonomies differ by system class** — design must address the taxonomy that actually applies.
 - **Failure taxonomy by domain:**
-  - **Distributed services:** partial failure, network timeout, retry storms, cascading failure.
-  - **Multi-client SaaS:** offline writes, sync conflict, push delivery loss, app crash mid-write.
-  - **Workflow / orchestration:** replay divergence, non-deterministic activity, version skew between worker and history.
-  - **Agentic AI:** hallucination, context overflow, infinite tool loop, runaway cost, indirect prompt injection (untrusted content reaching a privileged tool).
+
+  | Domain | Failure modes to design for |
+  |---|---|
+  | **Distributed services** | Partial failure, network timeout, retry storms, cascading failure |
+  | **Multi-client SaaS** | Offline writes, sync conflict, push delivery loss, app crash mid-write |
+  | **Workflow / orchestration** | Replay divergence, non-deterministic activity, version skew between worker and history |
+  | **Agentic AI** | Hallucination, context overflow, infinite tool loop, runaway cost, indirect prompt injection |
+
 - **In practice:**
   - For every external call: timeout, retry policy with jitter, idempotency strategy, fallback.
   - For every state transition: partial-failure behavior, recovery path, observable signal.
@@ -217,11 +237,21 @@ A principle's emphasis — and occasionally its direction — shifts along these
 ## 4. Operating Practices
 
 - **ADRs for irreversible decisions** — surface disagreement on the record before lock-in. Universal across SaaS, workflow, and agentic systems.
-- **Observability from day one** — adapted to the domain: logs/metrics/traces for backends; **crash reporting and RUM** for client apps; **Workflow Event History timelines and worker dashboards** for orchestration; **trace replay, token-cost telemetry, and eval scores** for agents.
+
+- **Observability from day one** — adapted to the domain:
+  - Backends: logs, metrics, distributed traces
+  - Client apps: crash reporting, RUM (real user monitoring)
+  - Workflow / orchestration: Event History timelines, worker dashboards
+  - Agents: trace replay, token-cost telemetry, eval scores
+
 - **Feature flags decouple deploy from release** — ship dark, enable gradually, kill-switch instantly. For mobile clients, server-side flag checks are required because binaries cannot be force-updated.
+
 - **Migration is a first-class operation** — schema migrations (SQL), workflow versioning (e.g., Temporal Patching), and prompt/skill version rollouts each have a playbook, not improvisation.
+
 - **Continuous refactor (Boy Scout Rule)** — leave each file slightly better; daily compounds beat scheduled rewrites.
+
 - **Tests *and* evals as design tools** — if it's hard to test, the design is wrong. For probabilistic surfaces (LLMs, ML), eval suites complement unit tests by capturing regressions tests cannot — see Hamel Husain, *Your AI Product Needs Evals* (hamel.dev, March 29, 2024), who frames evals as a superset of assertion-style tests, not a replacement.
+
 - **Eval suites are first-class artifacts, not scripts** — the principles above apply to the eval harness itself, not just to the system under test:
   - **Data model is destiny (§3.1):** the eval dataset and the grader/rubric schema decide what any score can *mean*. A rubric that collapses "wrong" and "unhelpful" into one pass/fail can never later distinguish them without re-grading the whole set.
   - **Migration is first-class (above):** changing a grader, rubric, or judge model **breaks comparability with every prior score** — 0.82 today is not 0.82 from last month. That is a migration with a versioned dataset and a re-baseline step, not a silent edit; pin which dataset and grader version produced which number.
@@ -246,7 +276,8 @@ A principle's emphasis — and occasionally its direction — shifts along these
 
 A library of patterns the engineer recognizes within minutes of seeing a problem — spanning all four system classes, not just distributed backends.
 
-**Distributed & concurrent**
+#### Distributed & Concurrent
+
 - Backpressure — producer/consumer rate mismatch
 - CAP & PACELC — consistency vs. availability under partition
 - Idempotency & at-least-once delivery — any distributed call
@@ -254,19 +285,22 @@ A library of patterns the engineer recognizes within minutes of seeing a problem
 - Two-generals / consensus — distributed agreement
 - Cache invalidation & cache stampede — read-heavy systems
 
-**Stateful & evolving**
+#### Stateful & Evolving
+
 - State machines — anything with a status field
 - Bounded contexts (DDD) — where one model ends and another begins
 - Eventual vs. strong consistency — replicated state
 - Conway's Law — org shape ⇒ system shape
 
-**Workflow & multi-client**
+#### Workflow & Multi-Client
+
 - **Determinism & replay** — workflows, simulations, deterministic builds
 - **Saga / compensation** — distributed transactions decomposed into reversible steps with compensating actions on failure (Garcia-Molina & Salem, *Sagas*, ACM SIGMOD 1987 — original scope was long-lived transactions in a single database; the microservices-saga framing is a later reinterpretation)
 - **Offline-first & conflict resolution** — multi-client sync (Shapiro, Preguiça, Baquero, Zawirski, *Conflict-free Replicated Data Types*, SSS 2011 — formalized and named CRDTs, building on prior eventual-consistency work)
 - **Operator UX as product** — the dashboard, retry button, and timeline view *are* the product for ops users (Temporal, Dagster, Airflow)
 
-**Probabilistic systems**
+#### Probabilistic Systems
+
 - **Probabilistic correctness & evals** — output is "right enough most of the time," not "right"; eval suites capture regressions tests cannot
 - **Token / context budget** — the LLM-era analog of memory budget in embedded systems
 - **Prompt injection (direct & indirect)** — untrusted input reaching an interpreter; treat exactly like SQL injection (Willison 2022; Greshake et al. 2023)
