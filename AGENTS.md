@@ -2,6 +2,8 @@
 
 Behavioral guidelines to reduce common LLM coding mistakes.
 
+**Product craft:** for design, architecture, and maintenance principles, load `software-product-craft.md` §0 first and retrieve the rest on demand.
+
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
 ## 1. Think Before Coding
