@@ -40,7 +40,7 @@
 <rect x="297.6" y="406.5" width="144.8" height="16" rx="3" fill="#0f1011"/>
 <text x="370.0" y="414.5" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="middle" dominant-baseline="central">reprograms reviewer</text>
 <rect x="843.0" y="400.0" width="87.2" height="16" rx="3" fill="#0f1011"/>
-<text x="847.0" y="408.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">independent</text>
+<text x="847.0" y="408.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">less-correlated</text>
 <rect x="843.0" y="415.0" width="137.6" height="16" rx="3" fill="#0f1011"/>
 <text x="847.0" y="423.0" font-family="ui-monospace, 'Cascadia Code', 'DejaVu Sans Mono', Menlo, Consolas, monospace" font-size="12" fill="#9a9fa8" text-anchor="start" dominant-baseline="central">error distribution</text>
 </svg>

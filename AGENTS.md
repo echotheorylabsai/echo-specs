@@ -2,7 +2,7 @@
 
 Behavioral guidelines to reduce common LLM coding mistakes.
 
-**Product craft:** for design, architecture, and maintenance principles, load `software-product-craft.md` §0 first and retrieve the rest on demand.
+**Reference docs:** load `software-product-craft.md` §0 (what good software is) and `agent-first-engineering-primer.md` §0 (how to build it with coding agents) first; retrieve the rest on demand.
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
