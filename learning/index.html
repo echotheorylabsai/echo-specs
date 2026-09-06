@@ -347,6 +347,7 @@ details.d3 > summary:hover{color:var(--ink)}
     <a class="rail-link" data-act="agents" href="#ch-9"><span class="n">9</span><span>Who says it is correct?</span></a>
     <a class="rail-link" data-act="agents" href="#ch-10"><span class="n">10</span><span>Gate on blast radius, not speed</span></a>
     <div class="rail-act">Reference</div>
+    <button class="rail-link" id="collapse-all" style="width:100%;text-align:left"><span class="n">&minus;</span><span>Collapse all chapters</span></button>
     <a class="rail-link" href="#map"><span class="n">&#9647;</span><span>All 23 principles</span></a>
     <a class="rail-link" href="#panels"><span class="n">&#9647;</span><span>Panels</span></a>
     <a class="rail-link" href="#self-test"><span class="n">&#9647;</span><span>Self-test</span></a>
@@ -395,8 +396,7 @@ details.d3 > summary:hover{color:var(--ink)}
     <div class="rule">Apply every principle in proportion to how long the artifact will live &mdash; its <b>half-life</b> &mdash; and how much damage a mistake can do &mdash; its <b>blast radius</b>. Pick the simplest design that keeps the door open.</div>
 
     <div class="note"><span class="badge craft">CRAFT &sect;0</span>
-      <p>That is the whole course in one sentence. Everything that follows is an answer to "how much of this applies here?"</p>
-      <p>The floor is the same everywhere: <b>minimum code that solves the problem, nothing speculative.</b></p>
+      <p>Everything that follows is an answer to "how much of this applies here?" The floor is the same everywhere: <b>minimum code that solves the problem, nothing speculative.</b></p>
       <ul class="ul">
         <li>No features beyond what was asked.</li>
         <li>No abstractions for single-use code.</li>
@@ -469,9 +469,8 @@ details.d3 > summary:hover{color:var(--ink)}
       </div>
     </div>
 
-    <div class="note"><span class="badge craft">CRAFT &sect;3</span>
-      <h3>Why one principle lands differently in two systems</h3>
-      <p>The eleven principles look the same on paper but land differently across system classes. Five dimensions explain most of the difference.</p>
+    <details class="d3"><summary>Why one principle lands differently in two systems &mdash; the five axes</summary><div class="d3-in">
+      <p style="margin-bottom:4px">Five dimensions explain most of the difference. <span class="badge craft">CRAFT &sect;3</span></p>
       <div class="tw"><table>
         <tr><th>Axis</th><th>Spectrum</th></tr>
         <tr><td><b>State persistence</b></td><td>Ephemeral context (agent) &harr; replay-durable history (workflow) &harr; persistent (database)</td></tr>
@@ -481,7 +480,7 @@ details.d3 > summary:hover{color:var(--ink)}
         <tr><td><b>Artifact half-life</b></td><td>Years (schemas, public APIs) &harr; months (services) &harr; weeks (prompts, skills)</td></tr>
       </table></div>
       <p style="margin-top:1em">A principle's emphasis &mdash; and occasionally its direction &mdash; shifts along these axes. Where the direction reverses, the principle says so.</p>
-    </div>
+    </div></details>
 
     <details class="d3"><summary>The four pillars this all sits on</summary><div class="d3-in">
       <div class="tw"><table>
@@ -529,7 +528,6 @@ details.d3 > summary:hover{color:var(--ink)}
         <li><b>Type-2</b> &mdash; internal class names, build tooling, a library used in one module. Decide and move.</li>
         <li><b>Watch the drift.</b> A framework or ORM is Type-2 to <em>decide</em> and often Type-1 to <em>undo</em> once thousands of files depend on it. Classify by the cost of undoing at the scale you expect, not the cost of choosing today.</li>
       </ul>
-      <p style="margin-top:.9em;font-size:.93rem;color:var(--muted)">The framing is Jeff Bezos's, from the 2015 Amazon shareholder letter published April 2016.</p>
     </div>
 
     <figure class="fig">
@@ -738,6 +736,7 @@ action = next_action(state, reply)          <span class="c"># pure</span>
 result = tools.run(action)                  <span class="c"># I/O</span></pre>
 
     <div class="rule">Treating the model as a pure function of its inputs is one of the most common architectural mistakes in this domain.</div>
+    <div class="note"><span class="badge craft">CRAFT &sect;3.9</span></div>
 
     <details class="d3"><summary>The same pattern in three other places</summary><div class="d3-in">
       <ul class="ul">
@@ -795,7 +794,7 @@ result = tools.run(action)                  <span class="c"># I/O</span></pre>
 payments.charge(customer_id, amount_cents, idempotency_key=charge_id)</pre>
 
     <div class="note"><span class="badge craft">CRAFT &sect;4</span>
-      <p><b>Observability, sized to blast radius.</b> A prototype needs logs. A payment path needs traces. The form depends on the domain &mdash; backends get logs, metrics and distributed traces; client apps get crash reporting and real-user monitoring; workflows get event-history timelines; agents get trace replay, token-cost telemetry, and eval scores.</p>
+      <p><b>Observability is sized to blast radius too.</b> Backends get logs, metrics and distributed traces; client apps get crash reporting and real-user monitoring; workflows get event-history timelines; agents get trace replay, token-cost telemetry, and eval scores.</p>
     </div>
 
     <div class="rule">Failure-mode design asks <em>what breaks?</em> Adversarial design asks <em>what can be made to break by someone who wants it to?</em> They produce different mitigations.</div>
@@ -835,11 +834,7 @@ payments.charge(customer_id, amount_cents, idempotency_key=charge_id)</pre>
       <p class="punch">What was missing: the process that should have applied a two-month-old patch.</p>
     </div>
 
-    <div class="case warn">
-      <div class="case-k"><span>SolarWinds SUNBURST &middot; disclosed 13 December 2020</span><span class="badge craft">CRAFT &sect;3.11</span></div>
-      <p><b>What happened:</b> the build pipeline for Orion updates was compromised; trojanized updates shipped March&ndash;June 2020 to up to 18,000 customers.</p>
-      <p class="punch">What was missing: a threat model that included the build pipeline. This attack went a layer below the application.</p>
-    </div>
+
 
     <div class="rule agents" style="border-left-color:var(--caution)">Prompt injection resembles SQL injection &mdash; untrusted input reaching an interpreter &mdash; but there is <b>no equivalent of the parameterized query</b>.</div>
 
@@ -854,14 +849,19 @@ payments.charge(customer_id, amount_cents, idempotency_key=charge_id)</pre>
       </ul>
     </div>
 
+
+
+    <details class="d3"><summary>Two more cautionary cases, agent actions, and the counter-example</summary><div class="d3-in">
     <div class="case warn">
+      <div class="case-k"><span>SolarWinds SUNBURST &middot; disclosed 13 December 2020</span><span class="badge craft">CRAFT &sect;3.11</span></div>
+      <p><b>What happened:</b> the build pipeline for Orion updates was compromised; trojanized updates shipped March&ndash;June 2020 to up to 18,000 customers.</p>
+      <p class="punch">What was missing: a threat model that included the build pipeline. This attack went a layer below the application.</p>
+    </div>    <div class="case warn">
       <div class="case-k"><span>Moffatt v. Air Canada &middot; 14 February 2024</span><span class="badge craft">CRAFT &sect;3.8</span></div>
       <p><b>What happened:</b> Air Canada's chatbot invented a bereavement-fare refund policy. The tribunal held the airline liable.</p>
       <p><b>What it means:</b> the award was small &mdash; CAD $812.02 in total &mdash; the principle is not. Organizations are accountable for the outputs of the agents they deploy.</p>
       <p class="punch">The hallucination failure mode had not been designed.</p>
     </div>
-
-    <details class="d3"><summary>Agent actions, and the positive counter-example</summary><div class="d3-in">
       <p style="font-size:.93rem;margin-bottom:.7em"><b>Because agent actions are irreversible at runtime:</b></p>
       <ul class="ul">
         <li>Classify every tool by reversibility before the agent can call it.</li>
@@ -1353,7 +1353,7 @@ layers =
     </div>
 
     <div class="bridge">
-      <div class="bridge-k">Juxtaposition &middot; necessary is not sufficient</div>
+      <div class="bridge-k">Bridge &middot; a comparison, not a cross-reference</div>
       <div class="bridge-cols">
         <div class="bridge-side"><span class="badge craft">CRAFT &sect;4</span>
           <p><b>"If you cannot verify it, do not ship it."</b> Verification is <em>necessary</em>.</p>
@@ -1599,7 +1599,7 @@ layers =
 <!-- ======================= 10. PANELS =============================== -->
 <section class="sec-head" id="panels">
   <h2>Reference panels</h2>
-  <p>The material that is neither a chapter nor a principle. Nothing here is expanded until you open it.</p>
+  <p>The material that is neither a chapter nor a principle.</p>
 </section>
 <div class="panels">
 
@@ -1857,6 +1857,11 @@ function openCh(id){
   if(!ch.classList.contains("is-open")){$(".ch-btn",ch).click()}
 }
 if(location.hash)openCh(location.hash.slice(1));
+$("#collapse-all").addEventListener("click",function(){
+  $$(".ch.is-open").forEach(function(ch){$(".ch-btn",ch).click()});
+  $$("details.d3[open]").forEach(function(d){d.open=false});
+  scrollTo({top:0,behavior:"instant"});
+});
 $$('a[href^="#ch-"]').forEach(function(a){
   a.addEventListener("click",function(){openCh(a.getAttribute("href").slice(1))});
 });
@@ -1962,11 +1967,12 @@ if(sg){
     var row=document.createElement("div"); row.className="sort-item";
     row.innerHTML='<span class="lbl">'+it.t+'</span>'+
       '<button class="pick" data-p="t2">Two-way</button>'+
-      '<button class="pick" data-p="t1">One-way</button>';
+      '<button class="pick" data-p="t1">One-way</button>'+
+      (it.a==="both"?'<button class="pick" data-p="both">Both</button>':'');
     row.addEventListener("click",function(e){
       var b=e.target.closest(".pick"); if(!b)return;
       $$(".pick",row).forEach(function(p){p.classList.toggle("on",p===b)});
-      var ok = it.a==="both" ? true : b.getAttribute("data-p")===it.a;
+      var ok = b.getAttribute("data-p")===it.a;
       row.classList.remove("right","wrong"); row.classList.add(ok?"right":"wrong");
       var why=$(".why",row);
       if(!why){why=document.createElement("span");why.className="why";row.appendChild(why)}
@@ -2109,6 +2115,12 @@ function applyFilters(){
     c.hidden=!ok; if(ok)n++;
   });
   empty.hidden=n>0;
+  if(!n){
+    var filtered=(fO!=="all"||fT);
+    empty.innerHTML= filtered
+      ? "No principle matches <b>under the current filter</b>. Clear it and search again."
+      : "No principle matches that search.<br>Some rules \u2014 flaky tests, migration, review caps \u2014 are not principles: look in the chapters or the <b>Operating rules</b> panel.";
+  }
   countEl.textContent=n+" of "+C.length;
 }
 $$(".chip[data-o]").forEach(function(b){b.addEventListener("click",function(){
